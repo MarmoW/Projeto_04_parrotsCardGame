@@ -23,6 +23,18 @@ img {
     box-sizing: border-box;
     padding-top:40px;
 }
+.back {
+    z-index: 10;
+    display: flex;
+    position: absolute;
+    top: 24px;
+    left: 7px;
+
+}
+.parrot {
+    display: none;
+    z-index: 10;
+}
 .jogo {
     display: flex;
     flex-wrap: wrap;
@@ -33,6 +45,9 @@ img {
     margin-top: 47px;
     box-sizing: border-box;
     
+}
+.sumiu {
+    display: none;
 }
 .cartas {
     display: flex;
@@ -48,6 +63,10 @@ img {
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+.display {
+    display: flex;
 }
 .titulo {
     margin-right: 18px;
