@@ -10,11 +10,17 @@ img {
     height: 100px;
 }
 .timer {
+    display: flex;
     width: 150px;
     height: 50px;
     position: fixed;
+    font-family: 'Roboto', sans-serif;
     top: 90px;
     right: 5%;
+    font-size: 50px;
+    font-weight: 500;
+    color: #75B79E;
+    align-items: center;
     
 }
 
