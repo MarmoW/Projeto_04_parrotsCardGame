@@ -1,12 +1,12 @@
-let numcartas, mesa, mostrar, esconder,cobrejogo,reiniciar, timer1, codtimer;
+let numcartas, mesa, mostrar, esconder,cobrejogo,reiniciar, timer1, codtimer, flipador1, flipador2;
 let deck = [];
 let random = [];
 let recente1 = null;
 let recente2 = null;
 let jogadas = 0;
-let segundos = 0;
-cobrejogo = document.querySelector('.cobrejogo')
-mesa = document.querySelector('.jogo');
+let segundos = 00;
+cobrejogo = document.querySelector('.cobrejogo'); //pega a div que cobre a tela enquanto a função não acabou de rodar pra evitar multiplos clicks
+mesa = document.querySelector('.jogo');           //pega a div da area onde as cartas ficam
 
 
 comecar();
@@ -40,31 +40,35 @@ function darcartas() { //coloca as cartas na mesa
     for(let i = 0; i < numcartas; i++ ){
     mesa.innerHTML += `<li class="cartas" onclick="revelar1(this)"><img class="parrot p${random[i]}" src="Imgs/parrot${random[i]}.gif"/><img class="back" src="Imgs/back.png"/></li>`;}
 }
-function revelar1(parent) {
+function revelar1(parent) { 
     cobrejogo.classList.add('on');
     mostrar = parent.querySelector(".parrot");
     esconder = parent.querySelector(".back");
     flip();
     jogadas++;
-    if(recente1 === null){
+    if(recente1 === null){ // revelar a primeira carta
         recente1 = mostrar;
         recente2 = esconder;
         cobrejogo.classList.remove('on');
       } 
 
     else{
-        revelar(parent);
+        revelar(parent); // revelar a segunda carta
     }
 }
 function flip(){ // revela a carta *redundante por enquanto
     mostrar.classList.add('display');
     esconder.classList.add('sumiu');
+    mostrar.parentNode.classList.add('flipada');
+    
 
 }
 function revelar(parent) { // revela carta e se não tiver nada nas cartas anteriores adiciona antes de guardar a carta clicada agora
     if(recente1 === null){
         recente1 = mostrar;
-        recente2 = esconder;  }  
+        recente2 = esconder;
+        flipador1 = flipador2;
+     }  
 
     mostrar = parent.querySelector(".parrot"); 
     esconder = parent.querySelector(".back");
@@ -74,6 +78,8 @@ function revelar(parent) { // revela carta e se não tiver nada nas cartas anter
     if(mostrar.classList.value === recente1.classList.value){
         recente1 = null; //limpa a carta guardada antes caso acerte
         recente2 = null; 
+        flipador1 = null;
+        flipador2 = null;
         cobrejogo.classList.remove('on');
         
         if(document.querySelectorAll('.display').length == numcartas){ //encerra o jogo quando revelar todas cartas
@@ -108,13 +114,16 @@ mostrar.classList.remove('display');
 esconder.classList.remove('sumiu');
 recente1.classList.remove('display');
 recente2.classList.remove('sumiu');
+recente1.parentNode.classList.remove('flipada');
+mostrar.parentNode.classList.remove('flipada');
 recente1 = null;
 recente2 = null;
+
 cobrejogo.classList.remove('on');
 
 }
 
-function comparador() { 
+function comparador() { //função pra randomizar o array com as cartas
 	return Math.random() - 0.5; 
 }
    

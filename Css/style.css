@@ -11,16 +11,18 @@ img {
 }
 .timer {
     display: flex;
-    width: 150px;
+    width: 80px;
     height: 50px;
     position: fixed;
     font-family: 'Roboto', sans-serif;
     top: 90px;
-    right: 5%;
+    right: 10%;
     font-size: 50px;
     font-weight: 500;
     color: #75B79E;
     align-items: center;
+    justify-content: flex-end;
+    
     
 }
 
@@ -57,8 +59,12 @@ img {
     top: 24px;
     left: 7px;
     
-
 }
+.flipada {
+    transform: rotateY(180deg);
+    
+}
+
 .parrot {
     display: none;
     z-index: 10;
@@ -93,6 +99,9 @@ img {
     justify-content: center;
     position: relative;
     transform-style: preserve-3d;
+    transition: all 500ms ease;
+    
+    
 }
 .display {
     display: flex;
@@ -113,9 +122,10 @@ img {
     .timer {
         top: 72px
     }
-    @media (max-width: 385px) {
+    @media (max-width: 384px) {
         .timer{
             top: 108px;
+            right: 33px;
         }
     }
 }
