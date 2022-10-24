@@ -116,8 +116,13 @@ img {
         
     }
     .jogo {
-        padding-left: 15px;
-        padding-right: 0px;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+    .cartas {
+    flex-wrap: nowrap;
+    margin-left: 10px;
+    margin-right: 10px;
     }
     .timer {
         top: 72px
@@ -127,5 +132,6 @@ img {
             top: 108px;
             right: 33px;
         }
+        
     }
-}
+} 

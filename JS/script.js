@@ -49,7 +49,8 @@ function revelar1(parent) {
     if(recente1 === null){ // revelar a primeira carta
         recente1 = mostrar;
         recente2 = esconder;
-        cobrejogo.classList.remove('on');
+        setTimeout(cobregame, 800); //intervalo antes de tirar a cobertura
+
       } 
 
     else{
@@ -62,6 +63,9 @@ function flip(){ // revela a carta *redundante por enquanto
     mostrar.parentNode.classList.add('flipada');
     
 
+}
+function cobregame() { //tira a cobertura
+    cobrejogo.classList.remove('on');
 }
 function revelar(parent) { // revela carta e se não tiver nada nas cartas anteriores adiciona antes de guardar a carta clicada agora
     if(recente1 === null){
@@ -80,7 +84,7 @@ function revelar(parent) { // revela carta e se não tiver nada nas cartas anter
         recente2 = null; 
         flipador1 = null;
         flipador2 = null;
-        cobrejogo.classList.remove('on');
+        setTimeout(cobregame, 800);
         
         if(document.querySelectorAll('.display').length == numcartas){ //encerra o jogo quando revelar todas cartas
             
