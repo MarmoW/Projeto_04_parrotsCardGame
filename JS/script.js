@@ -58,8 +58,9 @@ function revelar1(parent) {
     }
 }
 function flip(){ // revela a carta *redundante por enquanto
-    mostrar.classList.add('display');
+    
     esconder.classList.add('sumiu');
+    mostrar.classList.add('display');
     mostrar.parentNode.classList.add('flipada');
     
 
@@ -87,10 +88,7 @@ function revelar(parent) { // revela carta e se não tiver nada nas cartas anter
         setTimeout(cobregame, 800);
         
         if(document.querySelectorAll('.display').length == numcartas){ //encerra o jogo quando revelar todas cartas
-            
-            alert(`Você venceu o jogo em ${jogadas} jogadas e seu tempo foi ${Math.floor(segundos/60)}:${segundos%60}`);
-            clearInterval(codtimer); //timer para
-            recomecar();
+            setTimeout(fimdejogo, 500);
             
         }
     }
@@ -136,4 +134,11 @@ function timer2() { //função do timer
     timer1 = document.querySelector(".timer");
     timer1.innerHTML = `${Math.floor(segundos/60)}:${segundos%60}`;
       
+}
+
+function fimdejogo(){
+    alert(`Você venceu o jogo em ${jogadas} jogadas e seu tempo foi ${Math.floor(segundos/60)}:${segundos%60}`);
+    clearInterval(codtimer); //timer para
+    recomecar();
+            
 }
